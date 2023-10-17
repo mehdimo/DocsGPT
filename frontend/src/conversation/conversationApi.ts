@@ -129,7 +129,8 @@ export function fetchAnswerSteaming(
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*'
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Headers': 'Authorization'
       },
       body: JSON.stringify(body),
     })
