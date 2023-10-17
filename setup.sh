@@ -11,7 +11,8 @@ prompt_user() {
 # Function to handle the choice to download the model locally
 download_locally() {
     echo "LLM_NAME=llama.cpp" > .env
-    echo "VITE_API_STREAMING=true" >> .env
+    echo "VITE_API_STREAMING=false" >> .env
+    echo "SELF_HOSTED_MODEL=true" >> .env
     echo "EMBEDDINGS_NAME=huggingface_sentence-transformers/all-mpnet-base-v2" >> .env
     echo "The .env file has been created with LLM_NAME set to llama.cpp."
 
