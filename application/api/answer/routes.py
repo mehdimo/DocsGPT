@@ -1,6 +1,7 @@
 import asyncio
 import os
 from flask import Blueprint, request, Response
+from flask_cors import CORS
 import json
 import datetime
 import logging
@@ -26,6 +27,7 @@ db = mongo["docsgpt"]
 conversations_collection = db["conversations"]
 vectors_collection = db["vectors"]
 answer = Blueprint('answer', __name__)
+CORS(answer)
 
 if settings.LLM_NAME == "gpt4":
     gpt_model = 'gpt-4'
