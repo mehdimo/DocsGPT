@@ -20,6 +20,13 @@ user = Blueprint('user', __name__)
 
 current_dir = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
+@user.after_request
+def after_request(response):
+    response.headers["Access-Control-Allow-Origin"] = "*"
+    response.headers["Access-Control-Allow-Methods"] = "GET, POST, PUT, DELETE, OPTIONS"
+    response.headers["Access-Control-Allow-Headers"] = "Content-Type, X-Requested-With"
+    return response
+
 @user.route("/api/delete_conversation", methods=["POST"])
 def delete_conversation():
     # deletes a conversation from the database
